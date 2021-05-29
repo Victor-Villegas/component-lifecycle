@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import MyGalleries from './components/MyGalleries';
+import CatchError from './components/CatchError';
+
+import {
+  Container,
+  Typography
+} from '@material-ui/core';
+
+class App extends React.Component {
+  render () {
+    return (
+
+      <>
+        <div id={'gallery-title'}>
+          <div id={'bigtext'}>
+            <Typography variant={'h3'} align={'center'}>
+              PHOTO
+            </Typography>
+            <Typography variant={'h3'} align={'center'} className={'media-title'} color={'primary'}>
+              MEDIA
+            </Typography>
+          </div>
+          <Typography variant={'h4'} align={'center'} gutterBottom>
+            Your own private gallery
+          </Typography>
+        </div>
+
+        <Container className="App">
+          <CatchError>
+            <MyGalleries/>
+          </CatchError>
+        </Container>
+      </>
+    );
+  }
 }
 
 export default App;
